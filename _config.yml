@@ -1,5 +1,4 @@
 theme: jekyll-theme-modernist
-baseurl: "/public/arc-data-catalog.html"
 exclude:
   - LICENSE
   - README.md
