@@ -1,2 +1,5 @@
 theme: jekyll-theme-modernist
 source: ./public
+exclude:
+  - LICENSE
+  - README.md
