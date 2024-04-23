@@ -25,6 +25,13 @@
          width: 20%;
       }
 
+.wrapper {
+  width:1020px;
+  margin:0 auto;
+  background:#DEDEDE;
+  border-radius: 8px;
+  box-shadow: rgba(#000, 0.2) 0 0 0 1px, rgba(#000, 0.45) 0 3px 10px;
+}
       .menuitem {
          padding: 8px;
          margin-top: 7px;
@@ -78,14 +85,16 @@
 </head>
 
 <body>
+   <div class="wrapper">
    <div class ="title" style="padding:15px;">
       <h1 class="text-align-center"> Arctic Long-Term Ecological Reasearch </h1>
+      <h2 class="text-align-center">Arctic LTER Data available in Environmental Data Initiative (<a
+         href="https://portal.edirepository.org">EDI</a>) data portal</h2>
    </div>
  
 
    <div class="main">
-      <h2 class="text-align-center">Arctic LTER Data available in Environmental Data Initiative (<a
-         href="https://portal.edirepository.org">EDI</a>) data portal</h2>
+      
          
       <p>Enter a search term like "lake" (enclose compound terms in quotes e.g. "lake temperature"), or click
          <strong>Advanced</strong> for more options.
@@ -177,6 +186,7 @@
       </div>
       <div id="searchResults"></div>
       <div class="pagination" id="paginationBot"></div>
+   </div>
    </div>
 </body>
 
