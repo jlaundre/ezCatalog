@@ -1,75 +1,8 @@
-
+<body>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link href="search.css" rel="stylesheet" type="text/css">
 <link href="auto-complete.css" rel="stylesheet" type="text/css">
-<style>
-* {
-   box-sizing: border-box;
-}
-/* .title {
-   background-image: url("./Frances_Trevor_Arctic-LTER_scaled.jpg");
-   background-size: cover;
-   background-repeat: no-repeat;
-  height: 800px;  set the height of the div 
-}*/
-
-.menu {
-   float: left;
-   width: 20%;
-}
-
-.wrapper {
-width:1020px;
-margin:0 auto;
-background:#DEDEDE;
-border-radius: 8px;
-box-shadow: rgba(#000, 0.2) 0 0 0 1px, rgba(#000, 0.45) 0 3px 10px;
-}
-.menuitem {
-   padding: 8px;
-   margin-top: 7px;
-   border-bottom: 1px solid #f1f1f1;
-}
-
-.main {
-   float: left;
-   width: 80%;
-   padding: 20px 20px;
-   overflow: hidden;
-}
-
-.right {
-   background-color: lightblue;
-   float: left;
-   width: 20%;
-   padding: 10px 15px;
-   margin-top: 7px;
-}
-
-@media only screen and (max-width:800px) {
-
-   /* For tablets: */
-   .main {
-      width: 80%;
-      padding: 0;
-   }
-
-   .right {
-      width: 100%;
-   }
-}
-
-@media only screen and (max-width:500px) {
-
-   /* For mobile phones: */
-   .menu,
-   .main,
-   .right {
-      width: 100%;
-   }
-}
-</style>
 <script src="cors.js"></script>
 <script src="pagination.js"></script>
 <script src="auto-complete.min.js"></script>
@@ -77,15 +10,14 @@ box-shadow: rgba(#000, 0.2) 0 0 0 1px, rgba(#000, 0.45) 0 3px 10px;
 <script src="pasta_lookup.js"></script>
 <script src="pasta.js"></script>
 
-<div class="wrapper">
-    <div class ="title" style="padding:50px;">
-       <h1 class="text-align-center"> Arctic Long-Term Ecological Reasearch </h1>  
+   <div>
+    
+       <h1> Arctic Long-Term Ecological Reasearch </h1>  
        <img src ="./Frances_Trevor_Arctic-LTER_scaled.jpg" style="width:100%">
-    </div>
+    
   
-    <div class="main">
-        <h2 class="text-align-center">Arctic LTER Data available in Environmental Data Initiative (<a
-          href="https://portal.edirepository.org">EDI</a>) data portal</h2>
+    <h2>Arctic LTER Data available in Environmental Data Initiative (<a
+          href="https://portal.edirepository.org">EDI</a>)</h2>
           
        <p>Enter a search term like "lake" (enclose compound terms in quotes e.g. "lake temperature"), or click
           <strong>Advanced</strong> for more options.
@@ -178,4 +110,4 @@ box-shadow: rgba(#000, 0.2) 0 0 0 1px, rgba(#000, 0.45) 0 3px 10px;
        <div id="searchResults"></div>
        <div class="pagination" id="paginationBot"></div>
     </div>
-    </div>
+</body>
