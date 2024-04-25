@@ -1,4 +1,5 @@
 title: Arctic LTER EDI Data Search
+description: Search EDI for Arctic LTER data
 theme: jekyll-theme-modernist
 exclude:
   - LICENSE
