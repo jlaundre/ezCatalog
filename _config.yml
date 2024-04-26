@@ -1,0 +1,6 @@
+title: Arctic Long-Term Ecological Research Data
+description: 
+theme: jekyll-theme-modernist
+show_downloads: false
+exclude:
+  - LICENSE
