@@ -1,5 +1,5 @@
-title: Arctic LTER EDI Data Search
-description: Search EDI for Arctic LTER data
+title: Arctic LTER Environmental Data Initiative (EDI) Data
+description: Arctic LTER Data available in Environmental Data Initiative (<a href="https://portal.edirepository.org">EDI</a>) data portal
 theme: jekyll-theme-modernist
 exclude:
   - LICENSE
