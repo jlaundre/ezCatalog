@@ -1,7 +1,6 @@
 title: Arctic Long-Term Ecological Research Data
 description: 
-remote_theme: daattali/beautiful-jekyll@6.0.1
-full-width: true
+theme: jekyll-theme-modernist
 show_downloads: false
 exclude:
   - LICENSE
