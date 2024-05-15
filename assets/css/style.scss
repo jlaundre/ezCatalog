@@ -1,8 +1,8 @@
 ---
 ---
 
-.wrapper {
-  max-width: 60%;
-}
-
 @import "{{ site.theme }}";
+
+.wrapper {
+  width: 60%;
+}
