@@ -364,6 +364,8 @@ function initCollapsible(expanded) {
 function clearParams() {
    var areas = document.getElementById("coreArea");
    areas[0].selected = true;
+    var resAreas = document.getElementById("researchArea");
+   resAreas[0].selected = true;
    document.forms.dataSearchForm.creator.value = "";
 //    document.forms.dataSearchForm.identifier.value = "";
    document.forms.dataSearchForm.taxon.value = "";
@@ -427,7 +429,7 @@ window.onload = function () {
       }
    }
 
-   function makeQueryUrlBase(userQuery, coreArea, creator, sYear, eYear, datayear, pubyear,
+   function makeQueryUrlBase(userQuery, coreArea, researchArea, creator, sYear, eYear, datayear, pubyear,
       pkgId, taxon, geo, sortBy) {
 
       function makeDateQuery(sYear, eYear, datayear, pubyear) {
@@ -470,7 +472,10 @@ window.onload = function () {
 
       var params = "fl=" + fields + "&defType=edismax" + PASTA_CONFIG["filter"];
       if (coreArea && coreArea !== "any") {
-         params += '&fq=keyword:"' + coreArea + '"';
+         params += '&fq=keyword:"' + coreArea + '"';      
+      }
+      if (researchArea && researchArea !== "any") {
+         params += '&fq=keyword:"' + addQuotes(researchArea) + '"';
       }
       var query = "&q=" + userQuery;
       if (creator) query += "+AND+(author:" + addQuotes(creator) + "+OR+organization:" + addQuotes(creator) + ")";
@@ -488,6 +493,7 @@ window.onload = function () {
 
    var query = getParameterByName("q");
    var coreAreaParam = getParameterByName("coreArea");
+   var researchAreaParm = getParameterByName("researchArea");
    var creator = getParameterByName("creator");
    var sYear = parseInt(getParameterByName("s"));
    var eYear = parseInt(getParameterByName("e"));
@@ -515,6 +521,7 @@ window.onload = function () {
    if (document.forms.dataSearchForm.publish_year)
       document.forms.dataSearchForm.publish_year.checked = pubyear;
    var coreArea = setSelectValue("coreArea", coreAreaParam);
+   var researchArea = setSelectValue("researchArea", researchAreaParm);
    var sortBy = setSelectValue("visibleSort", sortParam);
    if (sortBy && document.forms.dataSearchForm.sort)
       document.forms.dataSearchForm.sort.value = sortBy;
@@ -532,7 +539,7 @@ window.onload = function () {
    initApp(expanded);
 
    if (!query) query = "*"; // default for empty query
-   QUERY_URL = makeQueryUrlBase(query, coreArea, creator, sYear, eYear,
+   QUERY_URL = makeQueryUrlBase(query, coreArea, researchArea, creator, sYear, eYear,
       datayear, pubyear, pkgId, taxon, geo, sortBy)
    searchPasta(PASTA_CONFIG["limit"], pageStart);
 
