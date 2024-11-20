@@ -475,7 +475,7 @@ window.onload = function () {
          params += '&fq=keyword:"' + coreArea + '"';      
       }
       if (researchArea && researchArea !== "any") {
-         params += '&fq=keyword:"' + researchArea + '"';
+         params += '&fq=keyword:"' + addQuotes(researchArea) + '"';
       }
       var query = "&q=" + userQuery;
       if (creator) query += "+AND+(author:" + addQuotes(creator) + "+OR+organization:" + addQuotes(creator) + ")";
