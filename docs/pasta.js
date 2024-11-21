@@ -476,7 +476,7 @@ window.onload = function () {
          params += '&fq=keyword:"' + coreArea + '"';      
       }
       if (keyWord) {
-         params += '&fq=keyword:"' + keyWord + '"';      
+         query += '&fq=keyword:"' + keyWord + '"';      
       }
       if (researchArea && researchArea !== "any") {
          params += '&fq=keyword:"' + researchArea + '"';
@@ -513,10 +513,10 @@ window.onload = function () {
    if (!pageStart) pageStart = 0;
 
    document.forms.dataSearchForm.q.value = query;
+   if (document.forms.dataSearchForm.keyWord)
+      document.forms.dataSearchForm.keyWord.value = keyWord;
    if (document.forms.dataSearchForm.creator)
       document.forms.dataSearchForm.creator.value = creator;
-    if (document.forms.dataSearchForm.keyWord)
-      document.forms.dataSearchForm.keyWord.value = keyWord;
    if (document.forms.dataSearchForm.identifier)
       document.forms.dataSearchForm.identifier.value = pkgId;
    if (document.forms.dataSearchForm.taxon)
