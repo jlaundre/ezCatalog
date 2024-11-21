@@ -497,7 +497,7 @@ window.onload = function () {
    var query = getParameterByName("q");
    var coreAreaParam = getParameterByName("coreArea");
    var keyWordParam = getParameterByName("keyWord");
-   var researchAreaParm = getParameterByName("researchArea");
+   var researchAreaParam = getParameterByName("researchArea");
    var creator = getParameterByName("creator");
    var sYear = parseInt(getParameterByName("s"));
    var eYear = parseInt(getParameterByName("e"));
@@ -525,8 +525,8 @@ window.onload = function () {
    if (document.forms.dataSearchForm.publish_year)
       document.forms.dataSearchForm.publish_year.checked = pubyear;
    var coreArea = setSelectValue("coreArea", coreAreaParam);
-   var keyWord = setSelectValue("keyWord", keyWordParm);
-   var researchArea = setSelectValue("researchArea", researchAreaParm);
+   var keyWord = setSelectValue("keyWord", keyWordParam);
+   var researchArea = setSelectValue("researchArea", researchAreaParam);
    var sortBy = setSelectValue("visibleSort", sortParam);
    if (sortBy && document.forms.dataSearchForm.sort)
       document.forms.dataSearchForm.sort.value = sortBy;
