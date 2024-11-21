@@ -1,4 +1,4 @@
-// Requires cors.js and pagination.js to be loaded first
+yWord, // Requires cors.js and pagination.js to be loaded first
 
 "use strict";
 
@@ -429,7 +429,7 @@ window.onload = function () {
       }
    }
 
-   function makeQueryUrlBase(userQuery, coreArea, researchArea, creator, sYear, eYear, datayear, pubyear,
+   function makeQueryUrlBase(userQuery, coreArea, keyWord, researchArea, creator, sYear, eYear, datayear, pubyear,
       pkgId, taxon, geo, sortBy) {
 
       function makeDateQuery(sYear, eYear, datayear, pubyear) {
@@ -474,8 +474,11 @@ window.onload = function () {
       if (coreArea && coreArea !== "any") {
          params += '&fq=keyword:"' + coreArea + '"';      
       }
+      if (keyWord && keyWord !== "") {
+         params += '&fq=keyword:"' + keyWord + '"';      
+      }
       if (researchArea && researchArea !== "any") {
-         params += '&fq=keyword:"' + addQuotes(researchArea) + '"';
+         params += '&fq=keyword:"' + researchArea + '"';
       }
       var query = "&q=" + userQuery;
       if (creator) query += "+AND+(author:" + addQuotes(creator) + "+OR+organization:" + addQuotes(creator) + ")";
@@ -493,6 +496,7 @@ window.onload = function () {
 
    var query = getParameterByName("q");
    var coreAreaParam = getParameterByName("coreArea");
+   var keyWordParam = getParameterByName("keyWord");
    var researchAreaParm = getParameterByName("researchArea");
    var creator = getParameterByName("creator");
    var sYear = parseInt(getParameterByName("s"));
@@ -521,6 +525,7 @@ window.onload = function () {
    if (document.forms.dataSearchForm.publish_year)
       document.forms.dataSearchForm.publish_year.checked = pubyear;
    var coreArea = setSelectValue("coreArea", coreAreaParam);
+   var keyWord = setSelectValue("keyWord", keyWordParm);
    var researchArea = setSelectValue("researchArea", researchAreaParm);
    var sortBy = setSelectValue("visibleSort", sortParam);
    if (sortBy && document.forms.dataSearchForm.sort)
