@@ -366,6 +366,7 @@ function clearParams() {
    areas[0].selected = true;
     var resAreas = document.getElementById("researchArea");
    resAreas[0].selected = true;
+   document.forms.dataSearchForm.keyWord.value = "";
    document.forms.dataSearchForm.creator.value = "";
 //    document.forms.dataSearchForm.identifier.value = "";
    document.forms.dataSearchForm.taxon.value = "";
@@ -474,7 +475,7 @@ window.onload = function () {
       if (coreArea && coreArea !== "any") {
          params += '&fq=keyword:"' + coreArea + '"';      
       }
-      if (keyWord && keyWord !== "") {
+      if (keyWord) {
          params += '&fq=keyword:"' + keyWord + '"';      
       }
       if (researchArea && researchArea !== "any") {
@@ -514,6 +515,8 @@ window.onload = function () {
    document.forms.dataSearchForm.q.value = query;
    if (document.forms.dataSearchForm.creator)
       document.forms.dataSearchForm.creator.value = creator;
+    if (document.forms.dataSearchForm.keyWord)
+      document.forms.dataSearchForm.keyWord.value = keyWord;
    if (document.forms.dataSearchForm.identifier)
       document.forms.dataSearchForm.identifier.value = pkgId;
    if (document.forms.dataSearchForm.taxon)
@@ -525,7 +528,6 @@ window.onload = function () {
    if (document.forms.dataSearchForm.publish_year)
       document.forms.dataSearchForm.publish_year.checked = pubyear;
    var coreArea = setSelectValue("coreArea", coreAreaParam);
-   var keyWord = setSelectValue("keyWord", keyWordParam);
    var researchArea = setSelectValue("researchArea", researchAreaParam);
    var sortBy = setSelectValue("visibleSort", sortParam);
    if (sortBy && document.forms.dataSearchForm.sort)
@@ -544,7 +546,7 @@ window.onload = function () {
    initApp(expanded);
 
    if (!query) query = "*"; // default for empty query
-   QUERY_URL = makeQueryUrlBase(query, coreArea, researchArea, creator, sYear, eYear,
+   QUERY_URL = makeQueryUrlBase(query, coreArea, keyWord, researchArea, creator, sYear, eYear,
       datayear, pubyear, pkgId, taxon, geo, sortBy)
    searchPasta(PASTA_CONFIG["limit"], pageStart);
 
