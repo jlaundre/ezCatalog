@@ -1,4 +1,4 @@
-yWord, // Requires cors.js and pagination.js to be loaded first
+// Requires cors.js and pagination.js to be loaded first
 
 "use strict";
 
