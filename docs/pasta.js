@@ -475,9 +475,8 @@ window.onload = function () {
       if (coreArea && coreArea !== "any") {
          params += '&fq=keyword:"' + coreArea + '"';      
       }
-      if (keyWord) {
-         query += '&fq=keyword:"' + keyWord + '"';      
-      }
+      if (keyWord) params += '&fq=keyword:"' + keyWord + '"';   
+      
       if (researchArea && researchArea !== "any") {
          params += '&fq=keyword:"' + researchArea + '"';
       }
