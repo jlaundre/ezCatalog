@@ -496,7 +496,7 @@ window.onload = function () {
 
    var query = getParameterByName("q");
    var coreAreaParam = getParameterByName("coreArea");
-   var keyWordParam = getParameterByName("keyWord");
+   var keyWord = getParameterByName("keyWord");
    var researchAreaParam = getParameterByName("researchArea");
    var creator = getParameterByName("creator");
    var sYear = parseInt(getParameterByName("s"));
