@@ -27,6 +27,23 @@
       <input type="hidden" id="sort" name="sort" value="score">
       <input class="search-input" name="q" placeholder="Enter search term" type="text">
       <input type="submit" value="Search">
+     <table> 
+        <tr>
+            <td>
+               <label class="labelBold">Select for multiple terms:</label>
+            </td>
+            <td class="spacerwd"></td>
+            <td>
+               <input checked="checked" name="subjectCondOR" type="radio" value="OR"/>
+               OR
+            </td>
+            <td class="spacerwd"></td>
+            <td>
+               <input name="subjectCondOR" type="radio" value="AND"/>
+               AND
+            </td>
+         </tr>
+        </table>
       <div style="margin-top: 10px">
          <input aria-expanded="false" aria-controls="advancedInputs" class="collapse-toggle" name="expanded" type="checkbox"
             value="true" id="advancedToggle" role="button">
