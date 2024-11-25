@@ -24,7 +24,7 @@ def configure_catalog(path):
     with open(path, 'r') as f:
         config = f.read().splitlines()
 
-    with open('public/pasta.js', 'r+') as f:
+    with open('docs/pasta.js', 'r+') as f:
         txt = f.read()
         for line in config:
             param = re.split(' = ', line)
