@@ -364,9 +364,6 @@ function initCollapsible(expanded) {
 function clearParams() {
    var areas = document.getElementById("coreArea");
    areas[0].selected = true;
-    var resAreas = document.getElementById("researchArea");
-   resAreas[0].selected = true;
-   document.forms.dataSearchForm.keyWord.value = "";
    document.forms.dataSearchForm.creator.value = "";
 //    document.forms.dataSearchForm.identifier.value = "";
    document.forms.dataSearchForm.taxon.value = "";
@@ -430,7 +427,7 @@ window.onload = function () {
       }
    }
 
-   function makeQueryUrlBase(userQuery, coreArea, keyWord, researchArea, creator, sYear, eYear, datayear, pubyear,
+   function makeQueryUrlBase(userQuery, coreArea, creator, sYear, eYear, datayear, pubyear,
       pkgId, taxon, geo, sortBy) {
 
       function makeDateQuery(sYear, eYear, datayear, pubyear) {
@@ -473,12 +470,7 @@ window.onload = function () {
 
       var params = "fl=" + fields + "&defType=edismax" + PASTA_CONFIG["filter"];
       if (coreArea && coreArea !== "any") {
-         params += '&fq=keyword:"' + coreArea + '"';      
-      }
-      if (keyWord) params += '&fq=keyword:"' + keyWord + '"';   
-      
-      if (researchArea && researchArea !== "any") {
-         params += '&fq=keyword:"' + researchArea + '"';
+         params += '&fq=keyword:"' + coreArea + '"';
       }
       var query = "&q=" + userQuery;
       if (creator) query += "+AND+(author:" + addQuotes(creator) + "+OR+organization:" + addQuotes(creator) + ")";
@@ -496,8 +488,6 @@ window.onload = function () {
 
    var query = getParameterByName("q");
    var coreAreaParam = getParameterByName("coreArea");
-   var keyWord = getParameterByName("keyWord");
-   var researchAreaParam = getParameterByName("researchArea");
    var creator = getParameterByName("creator");
    var sYear = parseInt(getParameterByName("s"));
    var eYear = parseInt(getParameterByName("e"));
@@ -512,8 +502,6 @@ window.onload = function () {
    if (!pageStart) pageStart = 0;
 
    document.forms.dataSearchForm.q.value = query;
-   if (document.forms.dataSearchForm.keyWord)
-      document.forms.dataSearchForm.keyWord.value = keyWord;
    if (document.forms.dataSearchForm.creator)
       document.forms.dataSearchForm.creator.value = creator;
    if (document.forms.dataSearchForm.identifier)
@@ -527,7 +515,6 @@ window.onload = function () {
    if (document.forms.dataSearchForm.publish_year)
       document.forms.dataSearchForm.publish_year.checked = pubyear;
    var coreArea = setSelectValue("coreArea", coreAreaParam);
-   var researchArea = setSelectValue("researchArea", researchAreaParam);
    var sortBy = setSelectValue("visibleSort", sortParam);
    if (sortBy && document.forms.dataSearchForm.sort)
       document.forms.dataSearchForm.sort.value = sortBy;
@@ -545,7 +532,7 @@ window.onload = function () {
    initApp(expanded);
 
    if (!query) query = "*"; // default for empty query
-   QUERY_URL = makeQueryUrlBase(query, coreArea, keyWord, researchArea, creator, sYear, eYear,
+   QUERY_URL = makeQueryUrlBase(query, coreArea, creator, sYear, eYear,
       datayear, pubyear, pkgId, taxon, geo, sortBy)
    searchPasta(PASTA_CONFIG["limit"], pageStart);
 
