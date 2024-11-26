@@ -497,6 +497,13 @@ window.onload = function () {
             return '"' + text + '"';
       }
 
+      // Enclose text in AND or OR if there are spaces and depending which radio button was selected the radio 
+      function addAndOr(text) {
+         if (!~text.indexOf(" ") || ~text.indexOf("+") || ~text.indexOf('"'))
+            return text;
+         else
+            return '"'+text.replace(/ /g,'"'+ getParameterByName("subjectCondOR") +'"')+'"';
+      }
       var base = PASTA_CONFIG["server"];
       var fields = ["title",
          "pubdate",
@@ -510,8 +517,8 @@ window.onload = function () {
       if (coreArea && coreArea !== "any") {
          params += '&fq=keyword:"' + coreArea + '"';
       }
-      if (keyWord) params += '&fq=keyword:"' + keyWord + '"';
-      var query = "&q=" + userQuery;
+      if (keyWord) params += '&fq=keyword:' + addAndOr(keyWord);
+      var query = "&q=" + addAndOr(userQuery);
       if (creator) query += "+AND+(author:" + addQuotes(creator) + "+OR+organization:" + addQuotes(creator) + ")";
       if (project) query += "+AND+(projectTitle:" + addQuotes(project) + "+OR+relatedProjectTitle:" + addQuotes(project) + ")";
       if (pkgId) {
