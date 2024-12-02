@@ -32,6 +32,14 @@ function getParameterByName(name, url) {
    return decodeURIComponent(results[2].replace(/\+/g, " ")).trim();
 }
 
+// Enclose text in AND or OR if there are spaces and depending which radio button was selected the radio 
+function addAndOr(text) {
+if (!~text.indexOf(" ") || ~text.indexOf("+") || ~text.indexOf('"'))
+   return text;
+else
+   return '"'+text.replace(/ /g,'"'+ getParameterByName("subjectCondOR") +'"')+'"';
+}
+
 // Parse citation dictionary into HTML
 function buildHtml(citations, abstracts) {
    var html = [];
@@ -320,7 +328,7 @@ function successCallback(headers, response) {
    showPageLinks(count, limit, showPages, currentStart, pageTopElementId);
    showPageLinks(count, limit, showPages, currentStart, pageBotElementId);
    var query = getParameterByName("q");
-   showResultCount(query, count, limit, currentStart, PASTA_CONFIG["countElementId"]);
+   showResultCount(addAndOr(query), count, limit, currentStart, PASTA_CONFIG["countElementId"]);
 }
 
 // Function to call if CORS request fails
@@ -497,13 +505,6 @@ window.onload = function () {
             return '"' + text + '"';
       }
 
-      // Enclose text in AND or OR if there are spaces and depending which radio button was selected the radio 
-      function addAndOr(text) {
-         if (!~text.indexOf(" ") || ~text.indexOf("+") || ~text.indexOf('"'))
-            return text;
-         else
-            return '"'+text.replace(/ /g,'"'+ getParameterByName("subjectCondOR") +'"')+'"';
-      }
       var base = PASTA_CONFIG["server"];
       var fields = ["title",
          "pubdate",
